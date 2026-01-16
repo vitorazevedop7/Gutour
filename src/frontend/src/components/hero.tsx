@@ -15,14 +15,16 @@ export function Hero() {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center">
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage: "url('/images/1.jpg')",
-        }}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover"
       >
-        <div className="absolute inset-0 bg-black/40" />
-      </div>
+        <source src="/videos/1 Hero site vid.mov" type="video/mp4" />
+      </video>
+      <div className="absolute inset-0 bg-black/40" />
 
       <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
         <h1 className="text-6xl md:text-8xl font-bold text-white mb-6 tracking-tight">GUTOUR</h1>
