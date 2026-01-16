@@ -128,7 +128,7 @@ export default function AustriaTripPage() {
               </div>
             </div>
 
-            <div className="rounded-3xl border border-border bg-card/5 backdrop-blur-md p-6 shadow-lg">
+            <div className="rounded-3xl border border-border bg-card/20 backdrop-blur-md p-6 shadow-lg">
               <h2 className="text-lg font-semibold text-foreground">Resumo rápido</h2>
               <ul className="mt-4 space-y-3 text-sm text-muted-foreground">
                 <li>Grupo pequeno: até 8 pilotos</li>
