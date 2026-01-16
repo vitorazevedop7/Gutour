@@ -11,6 +11,17 @@ export function Header() {
     })
   }
 
+  const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, sectionId: string) => {
+    e.preventDefault()
+    const element = document.querySelector(sectionId)
+    if (element) {
+      element.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      })
+    }
+  }
+
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-sm">
       <div className="container mx-auto px-6 py-2 flex items-center justify-between">
@@ -28,10 +39,18 @@ export function Header() {
           />
         </button>
         <nav className="flex items-center gap-8">
-          <Link href="#trips" className="text-muted-foreground hover:text-foreground transition-colors">
+          <Link 
+            href="#trips" 
+            onClick={(e) => scrollToSection(e, '#trips')}
+            className="text-muted-foreground hover:text-foreground transition-colors"
+          >
             Trips
           </Link>
-          <Link href="#contact" className="text-muted-foreground hover:text-foreground transition-colors">
+          <Link 
+            href="#contact" 
+            onClick={(e) => scrollToSection(e, '#contact')}
+            className="text-muted-foreground hover:text-foreground transition-colors"
+          >
             Contact
           </Link>
         </nav>

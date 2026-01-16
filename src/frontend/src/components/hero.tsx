@@ -1,7 +1,18 @@
-import Link from "next/link"
+"use client"
+
 import { Button } from "@/components/ui/button"
 
 export function Hero() {
+  const scrollToTrips = () => {
+    const tripsSection = document.querySelector('#trips')
+    if (tripsSection) {
+      tripsSection.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      })
+    }
+  }
+
   return (
     <section className="relative min-h-screen flex items-center justify-center">
       <div
@@ -18,11 +29,11 @@ export function Hero() {
         <h2 className="text-2xl md:text-4xl font-semibold text-white mb-4">Premium Motorcycle Trips Across Europe</h2>
         <p className="text-lg md:text-xl text-white/80 mb-10">Iconic routes, small groups, curated experiences</p>
         <Button
-          asChild
+          onClick={scrollToTrips}
           size="lg"
           className="bg-primary hover:bg-primary/90 text-primary-foreground px-10 py-6 text-lg rounded-lg"
         >
-          <Link href="#trips">View Trips</Link>
+          View Trips
         </Button>
       </div>
     </section>
