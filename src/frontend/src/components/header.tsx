@@ -3,7 +3,7 @@
 import Link from "next/link"
 import Image from "next/image"
 
-export function Header() {
+export function Header({ showLinks = true }: { showLinks?: boolean }) {
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
@@ -38,22 +38,24 @@ export function Header() {
             priority
           />
         </button>
-        <nav className="flex items-center gap-8">
-          <Link 
-            href="#trips" 
-            onClick={(e) => scrollToSection(e, '#trips')}
-            className="text-muted-foreground hover:text-foreground transition-colors"
-          >
-            Viagens
-          </Link>
-          <Link 
-            href="#contact" 
-            onClick={(e) => scrollToSection(e, '#contact')}
-            className="text-muted-foreground hover:text-foreground transition-colors"
-          >
-            Contato
-          </Link>
-        </nav>
+        {showLinks && (
+          <nav className="flex items-center gap-8">
+            <Link 
+              href="#trips" 
+              onClick={(e) => scrollToSection(e, '#trips')}
+              className="text-muted-foreground hover:text-foreground transition-colors"
+            >
+              Viagens
+            </Link>
+            <Link 
+              href="#contact" 
+              onClick={(e) => scrollToSection(e, '#contact')}
+              className="text-muted-foreground hover:text-foreground transition-colors"
+            >
+              Contato
+            </Link>
+          </nav>
+        )}
       </div>
     </header>
   )

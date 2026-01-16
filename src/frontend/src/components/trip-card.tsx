@@ -1,4 +1,5 @@
 import Image from "next/image"
+import Link from "next/link"
 import { MapPin } from "lucide-react"
 
 interface Trip {
@@ -8,11 +9,12 @@ interface Trip {
   date: string
   image: string
   featured: boolean
+  href?: string
 }
 
 export function TripCard({ trip }: { trip: Trip }) {
-  return (
-    <div className="group relative overflow-hidden rounded-2xl bg-card cursor-pointer">
+  const cardContent = (
+    <>
       <div className="aspect-[4/3] relative">
         <Image
           src={trip.image || "/placeholder.svg"}
@@ -31,6 +33,19 @@ export function TripCard({ trip }: { trip: Trip }) {
         <h3 className={`text-2xl font-bold mb-1 ${trip.featured ? "text-primary" : "text-white"}`}>{trip.title}</h3>
         <p className="text-white/70 text-sm">{trip.date}</p>
       </div>
-    </div>
+    </>
   )
+
+  if (trip.href) {
+    return (
+      <Link
+        href={trip.href}
+        className="group relative overflow-hidden rounded-2xl bg-card transition-transform hover:-translate-y-1"
+      >
+        {cardContent}
+      </Link>
+    )
+  }
+
+  return <div className="group relative overflow-hidden rounded-2xl bg-card cursor-pointer">{cardContent}</div>
 }
