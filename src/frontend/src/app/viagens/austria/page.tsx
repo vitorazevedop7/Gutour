@@ -7,7 +7,7 @@ import { Footer } from "@/components/footer"
 const itinerary = [
   {
     day: "Dia 1",
-    title: "Munique — Museu da BMW",
+    title: "Munique → Museu da BMW",
     description:
       "Dia de chegada e ambientação. Visita ao Museu da BMW para entrar no clima das máquinas e da história do motociclismo.",
   },
@@ -33,7 +33,7 @@ const itinerary = [
   },
   {
     day: "Dia 7",
-    title: "Erzbergrodeo — dia do evento",
+    title: "Erzbergrodeo → dia do evento",
   },
   {
     day: "Dia 8",
