@@ -44,14 +44,14 @@ export function Header() {
             onClick={(e) => scrollToSection(e, '#trips')}
             className="text-muted-foreground hover:text-foreground transition-colors"
           >
-            Trips
+            Viagens
           </Link>
           <Link 
             href="#contact" 
             onClick={(e) => scrollToSection(e, '#contact')}
             className="text-muted-foreground hover:text-foreground transition-colors"
           >
-            Contact
+            Contato
           </Link>
         </nav>
       </div>

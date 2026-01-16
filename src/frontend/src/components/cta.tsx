@@ -5,9 +5,9 @@ export function CTA() {
   return (
     <section id="contact" className="py-24 bg-background">
       <div className="container mx-auto px-6 text-center">
-        <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">Ready to Ride?</h2>
+        <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">Pronto para pilotar?</h2>
         <p className="text-muted-foreground text-lg mb-10 max-w-lg mx-auto">
-          Get in touch with us to learn more about our trips and availability
+          Fale com a gente para saber mais sobre nossas viagens e disponibilidade
         </p>
         <Button
           asChild
@@ -18,10 +18,10 @@ export function CTA() {
             href="https://wa.me/5531988932691"
             target="_blank"
             rel="noreferrer"
-            aria-label="Contact us on WhatsApp"
+            aria-label="Fale conosco no WhatsApp"
           >
             <MessageCircle className="w-5 h-5" />
-            Contact via WhatsApp
+            Contato via WhatsApp
           </a>
         </Button>
       </div>

@@ -3,18 +3,18 @@ import { MapPin, Users, Award } from "lucide-react"
 const features = [
   {
     icon: MapPin,
-    title: "Curated Routes",
-    description: "We design every route to showcase Europe's most breathtaking roads and hidden gems",
+    title: "Rotas selecionadas",
+    description: "Planejamos cada rota para destacar as estradas mais impressionantes e os tesouros escondidos da Europa",
   },
   {
     icon: Users,
-    title: "Small Groups",
-    description: "Intimate groups of maximum 8 riders ensure personalized attention and flexibility",
+    title: "Grupos pequenos",
+    description: "Grupos íntimos de no máximo 8 pilotos garantem atenção personalizada e flexibilidade",
   },
   {
     icon: Award,
-    title: "Premium Experience",
-    description: "Handpicked accommodations, local cuisine, and expert guides who know every corner",
+    title: "Experiência premium",
+    description: "Hospedagens selecionadas, gastronomia local e guias especialistas que conhecem cada canto",
   },
 ]
 
@@ -22,7 +22,7 @@ export function HowItWorks() {
   return (
     <section className="py-24 bg-secondary">
       <div className="container mx-auto px-6">
-        <h2 className="text-4xl md:text-5xl font-bold text-foreground text-center mb-16">How It Works</h2>
+        <h2 className="text-4xl md:text-5xl font-bold text-foreground text-center mb-16">Como funciona</h2>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-5xl mx-auto">
           {features.map((feature, index) => (
