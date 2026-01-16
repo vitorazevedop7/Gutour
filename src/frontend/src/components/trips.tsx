@@ -2,6 +2,15 @@ import { TripCard } from "@/components/trip-card"
 
 const trips = [
   {
+    id: 7,
+    title: "RedBull Erzbergrodeo",
+    location: "Áustria",
+    date: "01 a 08 de Junho de 2026",
+    image: "/images/8.jpg",
+    featured: true,
+    href: "/viagens/austria",
+  },
+  {
     id: 1,
     title: "Alpes Italianos e Dolomitas",
     location: "Itália",
