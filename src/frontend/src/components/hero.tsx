@@ -18,7 +18,7 @@ export function Hero() {
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: `url('/placeholder.svg?height=1080&width=1920')`,
+          backgroundImage: "url('/images/1.jpg')",
         }}
       >
         <div className="absolute inset-0 bg-black/40" />
