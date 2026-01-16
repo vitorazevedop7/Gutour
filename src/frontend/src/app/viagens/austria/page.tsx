@@ -1,3 +1,5 @@
+"use client"
+
 import Image from "next/image"
 import Link from "next/link"
 import { Check, X } from "lucide-react"
@@ -80,6 +82,21 @@ const gallery = [
 ]
 
 export default function AustriaTripPage() {
+  const handleScrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, sectionId: string) => {
+    e.preventDefault()
+    const element = document.querySelector(sectionId)
+    if (element) {
+      const headerHeight = 80 // Altura aproximada do header
+      const elementPosition = element.getBoundingClientRect().top + window.pageYOffset
+      const offsetPosition = elementPosition - headerHeight
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      })
+    }
+  }
+
   return (
     <main className="min-h-screen bg-background">
       <Header />
@@ -115,12 +132,14 @@ export default function AustriaTripPage() {
               <div className="mt-6 flex flex-wrap gap-4">
                 <Link
                   href="#roteiro"
+                  onClick={(e) => handleScrollToSection(e, '#roteiro')}
                   className="inline-flex items-center justify-center rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition hover:bg-primary/90"
                 >
                   Ver Roteiro
                 </Link>
                 <Link
                   href="#investimento"
+                  onClick={(e) => handleScrollToSection(e, '#investimento')}
                   className="inline-flex items-center justify-center rounded-full border border-primary/40 px-6 py-3 text-sm font-semibold text-primary transition hover:border-primary"
                 >
                   Ver Investimento
