@@ -6,7 +6,7 @@ const trips = [
     title: "Italian Alps & Dolomites",
     location: "Italy",
     date: "June 2025",
-    image: "/placeholder.svg?height=400&width=600",
+    image: "/images/2.jpg",
     featured: false,
   },
   {
@@ -14,7 +14,7 @@ const trips = [
     title: "Atlantic Coast Adventure",
     location: "Portugal",
     date: "September 2025",
-    image: "/placeholder.svg?height=400&width=600",
+    image: "/images/3.jpg",
     featured: true,
   },
   {
@@ -22,7 +22,7 @@ const trips = [
     title: "Scottish Highlands",
     location: "Scotland",
     date: "July 2025",
-    image: "/placeholder.svg?height=400&width=600",
+    image: "/images/4.jpg",
     featured: true,
   },
   {
@@ -30,7 +30,7 @@ const trips = [
     title: "Pyrenees Crossing",
     location: "Spain & France",
     date: "May 2025",
-    image: "/placeholder.svg?height=400&width=600",
+    image: "/images/5.jpg",
     featured: false,
   },
   {
@@ -38,7 +38,7 @@ const trips = [
     title: "Norwegian Fjords",
     location: "Norway",
     date: "August 2025",
-    image: "/placeholder.svg?height=400&width=600",
+    image: "/images/6.jpg",
     featured: false,
   },
   {
@@ -46,7 +46,7 @@ const trips = [
     title: "Swiss Alpine Passes",
     location: "Switzerland",
     date: "June 2025",
-    image: "/placeholder.svg?height=400&width=600",
+    image: "/images/7.jpg",
     featured: false,
   },
 ]
