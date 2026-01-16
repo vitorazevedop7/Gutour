@@ -278,7 +278,7 @@ export default function AustriaTripPage() {
         </div>
       </section>
 
-      <section className="py-16 bg-muted/30">
+      <section id="contact" className="py-16 bg-muted/30">
         <div className="container mx-auto px-6">
           <div className="rounded-3xl bg-primary/10 p-10 text-center">
             <h2 className="text-3xl font-bold text-foreground">Bora com a gente nessa aventura?</h2>
