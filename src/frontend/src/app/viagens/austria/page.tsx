@@ -82,10 +82,19 @@ const gallery = [
 export default function AustriaTripPage() {
   return (
     <main className="min-h-screen bg-background">
-      <Header showLinks={false} />
+      <Header />
 
-      <section className="pt-28 pb-16 bg-background">
-        <div className="container mx-auto px-6">
+      <section className="relative pt-80 pb-16 bg-background">
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/images/1.jpg"
+            alt="Background"
+            fill
+            className="object-cover opacity-20"
+            priority
+          />
+        </div>
+        <div className="container mx-auto px-6 relative z-10">
           <Link href="/#trips" className="text-sm text-muted-foreground hover:text-foreground">
             ← Voltar para Viagens
           </Link>
@@ -119,7 +128,7 @@ export default function AustriaTripPage() {
               </div>
             </div>
 
-            <div className="rounded-3xl border border-border bg-card p-6 shadow-lg">
+            <div className="rounded-3xl border border-border bg-card/5 backdrop-blur-md p-6 shadow-lg">
               <h2 className="text-lg font-semibold text-foreground">Resumo rápido</h2>
               <ul className="mt-4 space-y-3 text-sm text-muted-foreground">
                 <li>Grupo pequeno: até 8 pilotos</li>
