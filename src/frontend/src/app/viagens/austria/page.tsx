@@ -16,30 +16,40 @@ const itinerary = [
   {
     day: "Dia 2",
     title: "Munique → Andorf → Salzburg (KTM + Motohall + Hangar)",
+    description:
+      "Transfer em van até Andorf (~200 km) para retirada das motos. Visita exclusiva: Fábrica da KTM, KTM Motohall e Red Bull Hangar. Ao final, deslocamento e pernoite em Salzburg.",
   },
   {
     day: "Dia 3",
     title: "Salzburg → Innsbruck (+200 km)",
+    description:
+      "Dia de estrada pelas montanhas, com paradas estratégicas para alimentação e contemplação dos cenários ao longo do trajeto.",
   },
   {
     day: "Dia 4",
-    title: "Innsbruck → Cortina d’Ampezzo (Timmelsjoch + Dolomitas)",
-  },
+    title: "Innsbruck → Cortina d’Ampezzo (Timmelsjoch + Dolomitas)",    description:
+      "Um dos dias mais marcantes do roteiro: passagem pelo Timmelsjoch e pelas Dolomitas, com altitudes que chegam a ~2.500 m. Chegada em Cortina d'Ampezzo.",  },
   {
     day: "Dia 5",
-    title: "Cortina d’Ampezzo → Spielberg (Red Bull Ring)",
-  },
+    title: "Cortina d’Ampezzo → Spielberg (Red Bull Ring)",    description:
+      "Estradas alpinas e cenários impressionantes. Destino: Spielberg, onde fica o icônico circuito Red Bull Ring.",  },
   {
     day: "Dia 6",
     title: "Spielberg → Eisenerz (Erzbergrodeo)",
+    description:
+      "Chegada à região de Eisenerz, onde ocorre o Erzbergrodeo. Imersão no clima do evento e preparação para os dias de prova.",
   },
   {
     day: "Dia 7",
     title: "Erzbergrodeo → dia do evento",
+    description:
+      "Dia inteiro vivendo o Erzbergrodeo: atmosfera do evento, pilotos, bastidores e o epicentro do hard enduro mundial.",
   },
   {
     day: "Dia 8",
     title: "Eisenerz → Andorf → Munique (retorno)",
+    description:
+      "Retorno para Andorf (devolução das motos) e transfer em van até Munique (~200 km). Encerramento da experiência.",
   },
 ]
 

@@ -30,7 +30,7 @@ export function TripCard({ trip }: { trip: Trip }) {
           <MapPin className="w-4 h-4 text-primary" />
           <span className="text-primary text-sm font-medium">{trip.location}</span>
         </div>
-        <h3 className={`text-2xl font-bold mb-1 ${trip.featured ? "text-primary" : "text-white"}`}>{trip.title}</h3>
+        <h3 className="text-2xl font-bold mb-1 text-white">{trip.title}</h3>
         <p className="text-white/70 text-sm">{trip.date}</p>
       </div>
     </>
