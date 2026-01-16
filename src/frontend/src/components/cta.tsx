@@ -10,11 +10,19 @@ export function CTA() {
           Get in touch with us to learn more about our trips and availability
         </p>
         <Button
+          asChild
           size="lg"
           className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-6 text-lg rounded-lg gap-2"
         >
-          <MessageCircle className="w-5 h-5" />
-          Contact via WhatsApp
+          <a
+            href="https://wa.me/5531988932691"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Contact us on WhatsApp"
+          >
+            <MessageCircle className="w-5 h-5" />
+            Contact via WhatsApp
+          </a>
         </Button>
       </div>
     </section>
