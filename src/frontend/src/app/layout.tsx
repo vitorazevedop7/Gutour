@@ -8,9 +8,9 @@ const _geist = Geist({ subsets: ["latin"] })
 const _geistMono = Geist_Mono({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "GUTOUR - Premium Motorcycle Trips Across Europe",
+  title: "GUTOUR - Viagens Premium de Moto pela Europa",
   description:
-    "Iconic routes, small groups, curated experiences. Discover Europe on two wheels with carefully designed motorcycle tours.",
+    "Rotas icônicas, grupos pequenos e experiências selecionadas. Descubra a Europa sobre duas rodas com passeios de moto cuidadosamente planejados.",
   generator: "v0.app",
   icons: {
     icon: [
@@ -37,7 +37,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
+    <html lang="pt-BR">
       <body className={`font-sans antialiased`}>
         {children}
         <Analytics />

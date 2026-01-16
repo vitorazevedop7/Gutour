@@ -28,14 +28,14 @@ export function Hero() {
 
       <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
         <h1 className="text-6xl md:text-8xl font-bold text-white mb-6 tracking-tight">GUTOUR</h1>
-        <h2 className="text-2xl md:text-4xl font-semibold text-white mb-4">Premium Motorcycle Trips Across Europe</h2>
-        <p className="text-lg md:text-xl text-white/80 mb-10">Iconic routes, small groups, curated experiences</p>
+        <h2 className="text-2xl md:text-4xl font-semibold text-white mb-4">Viagens premium de moto pela Europa</h2>
+        <p className="text-lg md:text-xl text-white/80 mb-10">Rotas icônicas, grupos pequenos, experiências selecionadas</p>
         <Button
           onClick={scrollToTrips}
           size="lg"
           className="bg-primary hover:bg-primary/90 text-primary-foreground px-10 py-6 text-lg rounded-lg"
         >
-          View Trips
+          Ver viagens
         </Button>
       </div>
     </section>
