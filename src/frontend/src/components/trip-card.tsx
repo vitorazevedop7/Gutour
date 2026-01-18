@@ -1,3 +1,5 @@
+"use client"
+
 import Image from "next/image"
 import Link from "next/link"
 import { MapPin } from "lucide-react"
@@ -13,6 +15,10 @@ interface Trip {
 }
 
 export function TripCard({ trip }: { trip: Trip }) {
+  const handleUnavailableClick = () => {
+    window.alert("Esta viagem ainda está sendo pensada e planejada. Em breve traremos mais detalhes.")
+  }
+
   const cardContent = (
     <>
       <div className="aspect-[4/3] relative">
@@ -47,5 +53,13 @@ export function TripCard({ trip }: { trip: Trip }) {
     )
   }
 
-  return <div className="group relative overflow-hidden rounded-2xl bg-card cursor-pointer">{cardContent}</div>
+  return (
+    <button
+      type="button"
+      onClick={handleUnavailableClick}
+      className="group relative overflow-hidden rounded-2xl bg-card cursor-pointer text-left"
+    >
+      {cardContent}
+    </button>
+  )
 }
