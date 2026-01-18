@@ -2,7 +2,8 @@
 
 import Image from "next/image"
 import Link from "next/link"
-import { MapPin } from "lucide-react"
+import { MapPin, X } from "lucide-react"
+import { useState } from "react"
 
 interface Trip {
   id: number
@@ -15,8 +16,20 @@ interface Trip {
 }
 
 export function TripCard({ trip }: { trip: Trip }) {
+  const [showModal, setShowModal] = useState(false)
+  const [isClosing, setIsClosing] = useState(false)
+
   const handleUnavailableClick = () => {
-    window.alert("Esta viagem ainda está sendo pensada e planejada. Em breve traremos mais detalhes.")
+    setShowModal(true)
+    setIsClosing(false)
+  }
+
+  const handleClose = () => {
+    setIsClosing(true)
+    setTimeout(() => {
+      setShowModal(false)
+      setIsClosing(false)
+    }, 200)
   }
 
   const cardContent = (
@@ -54,12 +67,52 @@ export function TripCard({ trip }: { trip: Trip }) {
   }
 
   return (
-    <button
-      type="button"
-      onClick={handleUnavailableClick}
-      className="group relative overflow-hidden rounded-2xl bg-card cursor-pointer text-left"
-    >
-      {cardContent}
-    </button>
+    <>
+      <button
+        type="button"
+        onClick={handleUnavailableClick}
+        className="group relative overflow-hidden rounded-2xl bg-card cursor-pointer text-left w-full transition-transform hover:-translate-y-1"
+      >
+        {cardContent}
+      </button>
+
+      {showModal && (
+        <div 
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 backdrop-blur-sm p-4"
+          onClick={() => setShowModal(false)}
+        >
+          <div 
+            className="relative bg-card border border-border rounded-3xl p-8 max-w-md w-full shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              onClick={() => setShowModal(false)}
+              className="absolute top-4 right-4 p-2 rounded-full hover:bg-muted transition-colors"
+              aria-label="Fechar"
+            >
+              <X className="w-5 h-5 text-muted-foreground" />
+            </button>
+
+            <div className="text-center">
+              <div className="mb-4 flex items-center gap-2 justify-center">
+                <MapPin className="w-6 h-6 text-primary" />
+                <h3 className="text-2xl font-bold text-foreground">{trip.title}</h3>
+              </div>
+              
+              <p className="text-muted-foreground text-lg mb-6">
+                Esta viagem ainda está sendo pensada e planejada. Em breve traremos mais detalhes.
+              </p>
+
+              <button
+                onClick={() => setShowModal(false)}
+                className="inline-flex items-center justify-center rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition hover:bg-primary/90"
+              >
+                Entendido
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+    </>
   )
 }
