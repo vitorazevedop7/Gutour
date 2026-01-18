@@ -6,7 +6,7 @@ const trips = [
     title: "RedBull Erzbergrodeo",
     location: "Áustria",
     date: "Junho 2026",
-    image: "/images/8.jpg",
+    image: "/images/2.jpg",
     featured: true,
     href: "/viagens/austria",
   },
