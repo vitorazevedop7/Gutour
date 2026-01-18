@@ -29,6 +29,23 @@ export const metadata: Metadata = {
     ],
     apple: "/apple-icon.png",
   },
+  openGraph: {
+    title: "GUTOUR - Viagens Premium de Moto pela Europa",
+    description:
+      "Descubra a Europa sobre duas rodas com passeios cuidadosamente planejados.",
+    url: "https://gutour.vercel.app",
+    siteName: "GUTOUR",
+    images: [
+      {
+        url: "https://gutour.vercel.app/images/1.jpg",
+        width: 1200,
+        height: 630,
+        alt: "GUTOUR - Viagens Premium de Moto",
+      },
+    ],
+    locale: "pt_BR",
+    type: "website",
+  },
 }
 
 export default function RootLayout({
