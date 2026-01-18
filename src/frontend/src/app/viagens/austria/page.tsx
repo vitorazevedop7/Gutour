@@ -74,19 +74,19 @@ const excludes = [
 
 const gallery = [
   {
-    src: "/images/2.jpg",
+    src: "/images/9.jpg",
     alt: "Paisagens e estradas da viagem",
   },
   {
-    src: "/images/6.jpg",
+    src: "/images/10.jpg",
     alt: "Estradas e montanhas na Áustria",
   },
   {
-    src: "/images/7.jpg",
+    src: "/images/11.jpg",
     alt: "Motociclistas em rota alpina",
   },
   {
-    src: "/images/8.jpg",
+    src: "/images/12.jpg",
     alt: "Clima do evento Erzbergrodeo",
   },
 ]
@@ -114,7 +114,7 @@ export default function AustriaTripPage() {
       <section className="relative pt-80 pb-16 bg-background">
         <div className="absolute inset-0 z-0">
           <Image
-            src="/images/1.jpg"
+            src="/images/8.jpg"
             alt="Background"
             fill
             className="object-cover opacity-20"
