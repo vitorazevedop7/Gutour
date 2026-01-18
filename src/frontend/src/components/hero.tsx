@@ -1,8 +1,15 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
+import { useEffect, useState } from "react"
 
 export function Hero() {
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    setIsMobile(window.innerWidth < 768)
+  }, [])
+
   const scrollToTrips = () => {
     const tripsSection = document.querySelector('#trips')
     if (tripsSection) {
@@ -20,11 +27,22 @@ export function Hero() {
         loop
         muted
         playsInline
+        preload="auto"
         className="absolute inset-0 w-full h-full object-cover"
       >
-        <source src="/videos/gutour_background.webm" type="video/webm" />
-        <source src="/videos/gutour_background.mp4" type="video/mp4" />
+        {isMobile ? (
+          <>
+            <source src="/videos/gutour_background_mobile.webm" type="video/webm" />
+            <source src="/videos/gutour_background_mobile.mp4" type="video/mp4" />
+          </>
+        ) : (
+          <>
+            <source src="/videos/gutour_background.webm" type="video/webm" />
+            <source src="/videos/gutour_background.mp4" type="video/mp4" />
+          </>
+        )}
       </video>
+      
       <div className="absolute inset-0 bg-black/40" />
 
       <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
