@@ -32,10 +32,7 @@ export function Hero() {
         className="absolute inset-0 w-full h-full object-cover"
       >
         {isMobile ? (
-          <>
-            <source src="/videos/gutour_background_mobile.webm" type="video/webm" />
-            <source src="/videos/gutour_background_mobile.mp4" type="video/mp4" />
-          </>
+          <source src="/videos/gutour_background_mobile.mp4" type="video/mp4" />
         ) : (
           <>
             <source src="/videos/gutour_background.webm" type="video/webm" />
