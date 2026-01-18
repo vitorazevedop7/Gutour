@@ -46,6 +46,13 @@ export const metadata: Metadata = {
     locale: "pt_BR",
     type: "website",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "GUTOUR - Viagens Premium de Moto pela Europa",
+    description:
+      "Descubra a Europa sobre duas rodas com passeios cuidadosamente planejados.",
+    images: ["https://gutour.vercel.app/images/1.jpg"],
+  },
 }
 
 export default function RootLayout({
