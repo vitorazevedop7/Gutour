@@ -42,14 +42,6 @@ const trips = [
     image: "/images/6.jpg",
     featured: false,
   },
-  {
-    id: 5,
-    title: "Alpes & Dolomitas",
-    location: "Itália",
-    date: "2026 (data a definir)",
-    image: "/images/2.jpg",
-    featured: false,
-  },
 ]
 
 export function Trips() {
