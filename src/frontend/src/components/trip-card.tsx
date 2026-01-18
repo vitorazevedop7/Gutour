@@ -9,6 +9,7 @@ interface Trip {
   id: number
   title: string
   location: string
+  countryFlag?: string
   date: string
   image: string
   featured: boolean
@@ -46,8 +47,9 @@ export function TripCard({ trip }: { trip: Trip }) {
 
       <div className="absolute bottom-0 left-0 right-0 p-6">
         <div className="flex items-center gap-1.5 mb-2">
-          <MapPin className="w-4 h-4 text-primary" />
-          <span className="text-primary text-sm font-medium">{trip.location}</span>
+          {trip.countryFlag && <span className="text-lg">{trip.countryFlag}</span>}
+          <MapPin className="w-4 h-4 text-white/90" />
+          <span className="text-white/90 text-sm font-medium">{trip.location}</span>
         </div>
         <h3 className="text-2xl font-bold mb-1 text-white">{trip.title}</h3>
         <p className="text-white/70 text-sm">{trip.date}</p>
