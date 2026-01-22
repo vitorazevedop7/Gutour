@@ -12,15 +12,6 @@ const trips = [
     href: "/viagens/austria",
   },
   {
-    id: 1,
-    title: "Enduro GP",
-    location: "Portugal",
-    countryFlag: "🇵🇹",
-    date: "Junho 2026",
-    image: "/images/3.jpg",
-    featured: false,
-  },
-  {
     id: 2,
     title: "RedBull Romaniacs",
     location: "Romênia",
