@@ -28,13 +28,9 @@ export function Hero() {
         loop
         muted
         playsInline
-        preload="auto"
+        preload="metadata"
         poster="/images/hero-poster.png"
-        className="absolute inset-0 w-full h-full object-cover [&::-webkit-media-controls]:hidden [&::-webkit-media-controls-start-playback-button]:hidden"
-        style={{
-          WebkitAppearance: 'none',
-          pointerEvents: 'none'
-        } as React.CSSProperties}
+        className="absolute inset-0 w-full h-full object-cover"
       >
         {isMobile ? (
           <source src="/videos/hero.webm" type="video/webm" />
