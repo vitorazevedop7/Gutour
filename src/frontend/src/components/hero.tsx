@@ -11,11 +11,38 @@ export function Hero() {
   useEffect(() => {
     setIsMobile(window.innerWidth < 768)
     
-    // Forçar reprodução do vídeo em dispositivos móveis
-    if (videoRef.current) {
-      videoRef.current.muted = true
-      videoRef.current.play().catch(error => {
-        console.log('Autoplay bloqueado:', error)
+    const playVideo = () => {
+      if (videoRef.current) {
+        videoRef.current.muted = true
+        videoRef.current.play().catch(error => {
+          console.log('Autoplay bloqueado:', error)
+        })
+      }
+    }
+
+    // Tentar reproduzir imediatamente
+    playVideo()
+
+    // Listeners para primeira interação do usuário
+    const events = ['touchstart', 'click', 'scroll', 'mousemove', 'keydown']
+    
+    const handleInteraction = () => {
+      playVideo()
+      // Remover listeners após primeira interação
+      events.forEach(event => {
+        document.removeEventListener(event, handleInteraction)
+      })
+    }
+
+    // Adicionar listeners
+    events.forEach(event => {
+      document.addEventListener(event, handleInteraction, { once: true, passive: true })
+    })
+
+    // Cleanup
+    return () => {
+      events.forEach(event => {
+        document.removeEventListener(event, handleInteraction)
       })
     }
   }, [])
