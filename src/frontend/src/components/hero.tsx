@@ -2,6 +2,7 @@
 
 import { Button } from "@/components/ui/button"
 import { useEffect, useState } from "react"
+import Image from "next/image"
 
 export function Hero() {
   const [isMobile, setIsMobile] = useState(false)
@@ -44,7 +45,16 @@ export function Hero() {
       <div className="absolute inset-0 bg-black/40" />
 
       <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
-        <h1 className="text-6xl md:text-8xl font-bold text-white mb-6 tracking-tight">GUTOUR</h1>
+        <div className="mb-6 flex justify-center">
+          <Image
+            src="/logo/logobranca.png"
+            alt="GUTOUR"
+            width={400}
+            height={120}
+            className="w-auto h-24 md:h-32"
+            priority
+          />
+        </div>
         <h2 className="text-2xl md:text-4xl font-semibold text-white mb-4">Viagens premium de moto pela Europa</h2>
         <p className="text-lg md:text-xl text-white/80 mb-10">Rotas icônicas, grupos pequenos, experiências selecionadas</p>
         <Button
