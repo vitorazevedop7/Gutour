@@ -1,82 +1,74 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { useEffect, useState, useRef } from "react"
+import { useEffect, useRef, useState } from "react"
 import Image from "next/image"
 
 export function Hero() {
-  const [isVideoPlaying, setIsVideoPlaying] = useState(false)
   const videoRef = useRef<HTMLVideoElement>(null)
+  const [canAutoplay, setCanAutoplay] = useState(true)
+  const [isVideoPlaying, setIsVideoPlaying] = useState(false)
 
   useEffect(() => {
     const video = videoRef.current
     if (!video) return
 
-    const handlePlay = () => setIsVideoPlaying(true)
-    const handlePause = () => setIsVideoPlaying(false)
-    const handleEnded = () => setIsVideoPlaying(false)
+    const onPlay = () => setIsVideoPlaying(true)
+    const onPause = () => setIsVideoPlaying(false)
 
-    video.addEventListener('play', handlePlay)
-    video.addEventListener('playing', handlePlay)
-    video.addEventListener('pause', handlePause)
-    video.addEventListener('ended', handleEnded)
+    video.addEventListener("playing", onPlay)
+    video.addEventListener("pause", onPause)
+    video.addEventListener("ended", onPause)
 
-    // Tentar reproduzir
+    // iOS gosta de muted/playsInline setados via JS também
     video.muted = true
-    video.play().catch(error => {
-      console.log('Autoplay bloqueado:', error)
-      setIsVideoPlaying(false)
-    })
+    ;(video as any).playsInline = true
+
+    video.play()
+      .then(() => setCanAutoplay(true))
+      .catch(() => {
+        setCanAutoplay(false)   // <- não mostrar o <video>
+        setIsVideoPlaying(false)
+      })
 
     return () => {
-      video.removeEventListener('play', handlePlay)
-      video.removeEventListener('playing', handlePlay)
-      video.removeEventListener('pause', handlePause)
-      video.removeEventListener('ended', handleEnded)
+      video.removeEventListener("playing", onPlay)
+      video.removeEventListener("pause", onPause)
+      video.removeEventListener("ended", onPause)
     }
   }, [])
 
   const scrollToTrips = () => {
-    const tripsSection = document.querySelector('#trips')
-    if (tripsSection) {
-      tripsSection.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
-      })
-    }
+    document.querySelector("#trips")?.scrollIntoView({ behavior: "smooth", block: "start" })
   }
 
   return (
     <section className="relative min-h-screen flex items-center justify-center">
-      {/* Poster sempre visível quando vídeo não está tocando */}
-      <div 
-        className="absolute inset-0 w-full h-full object-cover bg-cover bg-center transition-opacity duration-500"
-        style={{ 
-          backgroundImage: 'url(/images/hero-poster.png)',
-          opacity: isVideoPlaying ? 0 : 1,
-          pointerEvents: 'none'
-        }}
+      {/* Poster base */}
+      <div
+        className="absolute inset-0 bg-cover bg-center"
+        style={{ backgroundImage: "url(/images/hero-poster.png)" }}
       />
-      
-      <video
-        ref={videoRef}
-        autoPlay
-        loop
-        muted
-        playsInline
-        webkit-playsinline="true"
-        preload="metadata"
-        poster="/images/hero-poster.png"
-        className="absolute inset-0 w-full h-full object-cover"
-        controls={false}
-        disablePictureInPicture
-        controlsList="nodownload nofullscreen noremoteplayback"
-        style={{ pointerEvents: 'none' }}
-      >
-        <source src="/videos/gutour_background.mp4" type="video/mp4" />
-        <source src="/videos/gutour_background.webm" type="video/webm" />
-      </video>
-      
+
+      {/* Só renderiza vídeo se autoplay funcionar */}
+      {canAutoplay && (
+        <video
+          ref={videoRef}
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="metadata"
+          poster="/images/hero-poster.png"
+          className="absolute inset-0 w-full h-full object-cover"
+          controls={false}
+        >
+          <source src="/videos/gutour_background.mp4" type="video/mp4" />
+          <source src="/videos/gutour_background.webm" type="video/webm" />
+        </video>
+      )}
+
+      {/* Overlay escuro */}
       <div className="absolute inset-0 bg-black/40" />
 
       <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
