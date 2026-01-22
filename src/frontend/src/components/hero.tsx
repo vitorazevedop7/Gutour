@@ -6,44 +6,36 @@ import Image from "next/image"
 
 export function Hero() {
   const [isMobile, setIsMobile] = useState(false)
+  const [isVideoPlaying, setIsVideoPlaying] = useState(false)
   const videoRef = useRef<HTMLVideoElement>(null)
 
   useEffect(() => {
     setIsMobile(window.innerWidth < 768)
     
-    const playVideo = () => {
-      if (videoRef.current) {
-        videoRef.current.muted = true
-        videoRef.current.play().catch(error => {
-          console.log('Autoplay bloqueado:', error)
-        })
-      }
-    }
+    const video = videoRef.current
+    if (!video) return
 
-    // Tentar reproduzir imediatamente
-    playVideo()
+    const handlePlay = () => setIsVideoPlaying(true)
+    const handlePause = () => setIsVideoPlaying(false)
+    const handleEnded = () => setIsVideoPlaying(false)
 
-    // Listeners para primeira interação do usuário
-    const events = ['touchstart', 'click', 'scroll', 'mousemove', 'keydown']
-    
-    const handleInteraction = () => {
-      playVideo()
-      // Remover listeners após primeira interação
-      events.forEach(event => {
-        document.removeEventListener(event, handleInteraction)
-      })
-    }
+    video.addEventListener('play', handlePlay)
+    video.addEventListener('playing', handlePlay)
+    video.addEventListener('pause', handlePause)
+    video.addEventListener('ended', handleEnded)
 
-    // Adicionar listeners
-    events.forEach(event => {
-      document.addEventListener(event, handleInteraction, { once: true, passive: true })
+    // Tentar reproduzir
+    video.muted = true
+    video.play().catch(error => {
+      console.log('Autoplay bloqueado:', error)
+      setIsVideoPlaying(false)
     })
 
-    // Cleanup
     return () => {
-      events.forEach(event => {
-        document.removeEventListener(event, handleInteraction)
-      })
+      video.removeEventListener('play', handlePlay)
+      video.removeEventListener('playing', handlePlay)
+      video.removeEventListener('pause', handlePause)
+      video.removeEventListener('ended', handleEnded)
     }
   }, [])
 
@@ -59,6 +51,16 @@ export function Hero() {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center">
+      {/* Poster sempre visível quando vídeo não está tocando */}
+      <div 
+        className="absolute inset-0 w-full h-full object-cover bg-cover bg-center transition-opacity duration-500"
+        style={{ 
+          backgroundImage: 'url(/images/hero-poster.png)',
+          opacity: isVideoPlaying ? 0 : 1,
+          pointerEvents: 'none'
+        }}
+      />
+      
       <video
         ref={videoRef}
         autoPlay
@@ -67,7 +69,6 @@ export function Hero() {
         playsInline
         webkit-playsinline="true"
         preload="metadata"
-        poster="/images/hero-poster.png"
         className="absolute inset-0 w-full h-full object-cover"
         controls={false}
         disablePictureInPicture
