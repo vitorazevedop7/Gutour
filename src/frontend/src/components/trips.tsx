@@ -45,7 +45,7 @@ export function Trips() {
     <section id="trips" className="py-24 bg-background">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">Nossas viagens</h2>
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">Nossas Viagens 2026</h2>
           <p className="text-muted-foreground text-lg max-w-xl mx-auto">
             {"Rotas cuidadosamente planejadas pelos cenários mais espetaculares da Europa"}
           </p>
