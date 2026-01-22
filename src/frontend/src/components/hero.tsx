@@ -5,13 +5,10 @@ import { useEffect, useState, useRef } from "react"
 import Image from "next/image"
 
 export function Hero() {
-  const [isMobile, setIsMobile] = useState(false)
   const [isVideoPlaying, setIsVideoPlaying] = useState(false)
   const videoRef = useRef<HTMLVideoElement>(null)
 
   useEffect(() => {
-    setIsMobile(window.innerWidth < 768)
-    
     const video = videoRef.current
     if (!video) return
 
@@ -69,23 +66,15 @@ export function Hero() {
         playsInline
         webkit-playsinline="true"
         preload="metadata"
+        poster="/images/hero-poster.png"
         className="absolute inset-0 w-full h-full object-cover"
         controls={false}
         disablePictureInPicture
         controlsList="nodownload nofullscreen noremoteplayback"
         style={{ pointerEvents: 'none' }}
       >
-        {isMobile ? (
-          <>
-            <source src="/videos/hero.mp4" type="video/mp4" />
-            <source src="/videos/hero.webm" type="video/webm" />
-          </>
-        ) : (
-          <>
-            <source src="/videos/gutour_background.webm" type="video/webm" />
-            <source src="/videos/gutour_background.mp4" type="video/mp4" />
-          </>
-        )}
+        <source src="/videos/gutour_background.mp4" type="video/mp4" />
+        <source src="/videos/gutour_background.webm" type="video/webm" />
       </video>
       
       <div className="absolute inset-0 bg-black/40" />
