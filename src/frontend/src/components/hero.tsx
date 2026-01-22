@@ -76,7 +76,10 @@ export function Hero() {
         style={{ pointerEvents: 'none' }}
       >
         {isMobile ? (
-          <source src="/videos/hero.webm" type="video/webm" />
+          <>
+            <source src="/videos/hero.mp4" type="video/mp4" />
+            <source src="/videos/hero.webm" type="video/webm" />
+          </>
         ) : (
           <>
             <source src="/videos/gutour_background.webm" type="video/webm" />
