@@ -1,14 +1,23 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { useEffect, useState } from "react"
+import { useEffect, useState, useRef } from "react"
 import Image from "next/image"
 
 export function Hero() {
   const [isMobile, setIsMobile] = useState(false)
+  const videoRef = useRef<HTMLVideoElement>(null)
 
   useEffect(() => {
     setIsMobile(window.innerWidth < 768)
+    
+    // Forçar reprodução do vídeo em dispositivos móveis
+    if (videoRef.current) {
+      videoRef.current.muted = true
+      videoRef.current.play().catch(error => {
+        console.log('Autoplay bloqueado:', error)
+      })
+    }
   }, [])
 
   const scrollToTrips = () => {
@@ -24,13 +33,19 @@ export function Hero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center">
       <video
+        ref={videoRef}
         autoPlay
         loop
         muted
         playsInline
+        webkit-playsinline="true"
         preload="metadata"
         poster="/images/hero-poster.png"
         className="absolute inset-0 w-full h-full object-cover"
+        controls={false}
+        disablePictureInPicture
+        controlsList="nodownload nofullscreen noremoteplayback"
+        style={{ pointerEvents: 'none' }}
       >
         {isMobile ? (
           <source src="/videos/hero.webm" type="video/webm" />
