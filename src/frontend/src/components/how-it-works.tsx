@@ -14,7 +14,7 @@ const features = [
   {
     icon: Award,
     title: "Experiência premium",
-    description: "Hospedagens selecionadas, gastronomia local e guias especialistas que conhecem cada canto",
+    description: "Hospedagens selecionadas, gastronomia local e acompanhamento do Guto — piloto experiente, com múltiplas idas à Europa, presença nos principais eventos e profundo conhecimento de cada roteiro.",
   },
 ]
 
