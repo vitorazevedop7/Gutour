@@ -15,9 +15,9 @@ const itinerary = [
   },
   {
     day: "Dia 2",
-    title: "Munique → Andorf → Salzburg (KTM + Motohall + Hangar)",
+    title: "Munique → Andorf → Salzburg (Fábrica KTM + KTM Motohall + Hangar7)",
     description:
-      "Transfer em van até Andorf (~200 km) para retirada das motos. Visita exclusiva: Fábrica da KTM, KTM Motohall e Red Bull Hangar. Ao final, deslocamento e pernoite em Salzburg.",
+      "Tranfer de VAN +- 200km até Andorf na Áustria onde iremos retirar as motocicletas. Vamos de Andorf em direção a Salzburg, onde iremos na Fabrica da KTM, KTM MOTOHALL e seguiremos para o Hotel, a noite visita ao museu RED BULL o famoso HANGAR 7. Dia mais curto para ambientação.",
   },
   {
     day: "Dia 3",
