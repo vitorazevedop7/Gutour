@@ -4,6 +4,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { Check, X } from "lucide-react"
 import { Header } from "@/components/header"
+import { SocialMedia } from "@/components/social-media"
 import { Footer } from "@/components/footer"
 
 const itinerary = [
@@ -306,6 +307,8 @@ export default function AustriaTripPage() {
           </div>
         </div>
       </section>
+
+      <SocialMedia />
 
       <section id="contact" className="py-16 bg-muted/30">
         <div className="container mx-auto px-6">
