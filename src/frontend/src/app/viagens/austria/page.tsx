@@ -249,10 +249,14 @@ export default function AustriaTripPage() {
           <div className="rounded-3xl border border-border bg-card p-8">
             <h2 className="text-2xl font-bold text-foreground">Cortesia especial</h2>
             <p className="mt-4 text-muted-foreground">
-              Benefício exclusivo GUTOUR: possibilidade de encomendar produtos ACERBIS direto no preço de fábrica, com
-              retirada em Viena ao final da viagem.
+              Benefício exclusivo GUTOUR: possibilidade de adquirir equipamentos pessoais para o piloto da marca ACERBIS diretamente a preço de fábrica.
             </p>
-            <p className="mt-4 text-muted-foreground">Ótima oportunidade para adquirir equipamentos premium com o menor preço.</p>
+            <p className="mt-4 text-muted-foreground">
+              Os equipamentos poderão ser encomendados antecipadamente, retirados no início da viagem e utilizados durante todo o roteiro, eliminando a necessidade de levar equipamentos do Brasil.
+            </p>
+            <p className="mt-4 text-muted-foreground">
+              Ao final da experiência, o piloto retorna com seus equipamentos novos para casa, aproveitando a viagem para testar e trazer itens de alta qualidade com o melhor custo-benefício.
+            </p>
           </div>
 
           <div className="rounded-3xl border border-border bg-card p-8">
