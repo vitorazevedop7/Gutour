@@ -1,0 +1,362 @@
+"use client"
+
+import Image from "next/image"
+import Link from "next/link"
+import { Check, X } from "lucide-react"
+import { Header } from "@/components/header"
+import { SocialMedia } from "@/components/social-media"
+import { Footer } from "@/components/footer"
+
+const itinerary = [
+  {
+    day: "Dia 0",
+    date: "24.07",
+    title: "Munique → Reunião do grupo + Jantar",
+    description:
+      "Chegada e ambientação. Encontro oficial do grupo, briefing do roteiro e jantar de boas-vindas para alinhar horários, documentação e expectativas.",
+  },
+  {
+    day: "Dia 1",
+    date: "25.07",
+    title: "Munique → Andorf → Viena",
+    description:
+      "Transfer em van até Andorf, na Áustria, para retirada das motocicletas. Início da viagem sobre duas rodas com destino a Viena, capital austríaca, para o primeiro pernoite.",
+  },
+  {
+    day: "Dia 2",
+    date: "26.07",
+    title: "Viena → Szeged (Hungria)",
+    description:
+      "Dia de deslocamento internacional com entrada na Hungria. Estradas bem estruturadas e ritmo constante até Szeged, preparando o grupo para o trecho mais longo rumo à Romênia.",
+  },
+  {
+    day: "Dia 3",
+    date: "27.07",
+    title: "Szeged → Sibiu (Romênia)",
+    description:
+      "Travessia para a Romênia e jornada até Sibiu, cidade-base do Red Bull Romaniacs. Chegada, acomodação e tempo para checagens finais e organização dos equipamentos.",
+  },
+  {
+    day: "Dia 4",
+    date: "28.07",
+    title: "Sibiu → Prólogo do Red Bull Romaniacs",
+    description:
+      "Dia dedicado ao Prólogo do Romaniacs. Primeiro contato com a estrutura do evento, clima de competição, reconhecimento do ambiente e preparação para o off-road.",
+  },
+  {
+    day: "Dia 5",
+    date: "29.07",
+    title: "Sibiu → Dia 1 Off-road (Red Bull Romaniacs)",
+    description:
+      "Primeiro dia completo de trilhas do Romaniacs. Terreno técnico, paisagens intensas e imersão total na experiência off-road, com retorno para Sibiu ao final do dia.",
+  },
+  {
+    day: "Dia 6",
+    date: "30.07",
+    title: "Sibiu → Arad (Romênia)",
+    description:
+      "Saída da região do evento e deslocamento rumo ao oeste do país. Chegada em Arad para pernoite e reagrupamento, iniciando o caminho de retorno.",
+  },
+  {
+    day: "Dia 7",
+    date: "31.07",
+    title: "Arad → Győr (Hungria)",
+    description:
+      "Travessia de fronteira de volta à Hungria. Dia mais leve, ideal para recuperar energia e manter ritmo confortável até Győr.",
+  },
+  {
+    day: "Dia 8",
+    date: "01.08",
+    title: "Győr → Salzburg",
+    description:
+      "Retorno à Áustria e chegada em Salzburg. À noite, experiência especial com jantar no Red Bull Hangar-7, um dos pontos mais marcantes de toda a viagem.",
+  },
+  {
+    day: "Dia 9",
+    date: "02.08",
+    title: "Salzburg → Andorf (KTM Motohall) → Munique",
+    description:
+      "Visita à KTM Motohall e sequência até Andorf para devolução das motocicletas. Transfer final em van até Munique, encerramento do tour e despedida do grupo.",
+  },
+]
+
+const includes = [
+  "Moto KTM 890 com malas, KM livre e seguro total",
+  "Ingresso para o Red Bull Romaniacs (Prólogo + 1 dia off-road)",
+  "Transfer em van: Munique → Andorf / Andorf → Munique",
+  "Entrada no KTM Motohall",
+  "Hotéis (quarto duplo) (individual sob cotação)",
+  "Kit promocional com brindes (inclui camisetas)",
+  "Guia durante todo o percurso",
+]
+
+const excludes = [
+  "GPS e dados móveis (cada participante deve ter o seu e saber usar)",
+  "Gasolina",
+  "Alimentação (café da manhã, almoço e jantar)",
+  "Passagens aéreas e deslocamentos ferroviários até/da Europa",
+  "Seguro pessoal de viagem (obrigatório, com cobertura para motociclismo)",
+  "Equipamentos pessoais (capacete, jaqueta, luvas, botas, EPI)",
+]
+
+const gallery = [
+  {
+    src: "/images/9.jpg",
+    alt: "Paisagens e estradas da viagem",
+  },
+  {
+    src: "/images/10.jpg",
+    alt: "Estradas e montanhas na Romênia",
+  },
+  {
+    src: "/images/11.jpg",
+    alt: "Motociclistas em rota internacional",
+  },
+  {
+    src: "/images/12.jpg",
+    alt: "Clima do evento Red Bull Romaniacs",
+  },
+]
+
+export default function RomaniaTripPage() {
+  const handleScrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, sectionId: string) => {
+    e.preventDefault()
+    const element = document.querySelector(sectionId)
+    if (element) {
+      const headerHeight = 80 // Altura aproximada do header
+      const elementPosition = element.getBoundingClientRect().top + window.pageYOffset
+      const offsetPosition = elementPosition - headerHeight
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      })
+    }
+  }
+
+  return (
+    <main className="min-h-screen bg-background">
+      <Header />
+
+      <section className="relative pt-80 pb-16 bg-background">
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/images/8.jpg"
+            alt="Background"
+            fill
+            className="object-cover opacity-20"
+            priority
+          />
+        </div>
+        <div className="container mx-auto px-6 relative z-10">
+          <Link href="/#trips" className="text-sm text-muted-foreground hover:text-foreground">
+            ← Voltar para Viagens
+          </Link>
+
+          <div className="mt-8 grid gap-10 lg:grid-cols-[1.2fr_0.8fr] items-start">
+            <div>
+              <div className="flex flex-wrap items-center gap-3 text-sm text-muted-foreground">
+                <span className="font-semibold text-primary">Romênia</span>
+                <span>•</span>
+                <span>24 de Julho a 02 de Agosto</span>
+              </div>
+              <h1 className="mt-3 text-4xl md:text-5xl font-bold text-foreground">Red Bull Romaniacs</h1>
+              <p className="mt-4 text-lg text-muted-foreground max-w-2xl">
+                Uma jornada premium pelo coração da Europa Central, atravessando Áustria, Hungria e Romênia, com o Red Bull Romaniacs — o maior e mais desafiador evento de hard enduro do mundo — como ponto alto da experiência.
+              </p>
+
+              <div className="mt-6 flex flex-wrap gap-4">
+                <Link
+                  href="#roteiro"
+                  onClick={(e) => handleScrollToSection(e, '#roteiro')}
+                  className="inline-flex items-center justify-center rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition hover:bg-primary/90"
+                >
+                  Ver Roteiro
+                </Link>
+                <Link
+                  href="#investimento"
+                  onClick={(e) => handleScrollToSection(e, '#investimento')}
+                  className="inline-flex items-center justify-center rounded-full border border-primary/40 px-6 py-3 text-sm font-semibold text-primary transition hover:border-primary"
+                >
+                  Ver Investimento
+                </Link>
+              </div>
+            </div>
+
+            <div className="rounded-3xl border border-border bg-card/20 backdrop-blur-md p-6 shadow-lg">
+              <h2 className="text-lg font-semibold text-foreground">Resumo rápido</h2>
+              <ul className="mt-4 space-y-3 text-sm text-muted-foreground">
+                <li>Grupo pequeno: até 8 pilotos</li>
+                <li>Moto KTM 890 com seguro total e KM livre</li>
+                <li>Acesso ao Red Bull Romaniacs (Prólogo + 1 dia off-road)</li>
+                <li>Roteiro internacional por Áustria, Hungria e Romênia</li>
+                <li>Experiências KTM e Red Bull ao longo do percurso</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16 bg-muted/30">
+        <div className="container mx-auto px-6">
+          <h2 className="text-3xl font-bold text-foreground">Sobre a experiência</h2>
+          <div className="mt-6 space-y-4 text-muted-foreground max-w-3xl">
+            <p>
+              Esta viagem foi desenhada para quem quer viver a Europa sobre duas rodas, combinando grandes deslocamentos internacionais, estradas históricas e a imersão completa no Red Bull Romaniacs, considerado o evento mais extremo do hard enduro mundial.
+            </p>
+            <p>
+              O roteiro conecta quatro países, passando por capitais, cidades estratégicas e regiões montanhosas, até chegar a Sibiu, cidade-base do evento. Além do contato direto com o Romaniacs, a experiência inclui momentos icônicos do universo KTM e Red Bull, como a visita à KTM Motohall e o Red Bull Hangar-7.
+            </p>
+            <p>
+              Tudo é feito em grupo reduzido (até 8 pilotos), garantindo mais flexibilidade, conforto e uma vivência verdadeiramente exclusiva.
+            </p>
+            <p className="font-medium text-foreground">Dica: é possível levar acompanhante na garupa (sob organização prévia).</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="roteiro" className="py-16 bg-background">
+        <div className="container mx-auto px-6">
+          <div className="flex flex-wrap items-center justify-between gap-4">
+            <div>
+              <h2 className="text-3xl font-bold text-foreground">Roteiro dia a dia</h2>
+              <p className="mt-2 text-muted-foreground">Programação completa de 24 de Julho a 02 de Agosto.</p>
+            </div>
+          </div>
+
+          <div className="mt-10 grid gap-6 lg:grid-cols-2">
+            {itinerary.map((item) => (
+              <div key={item.day} className="rounded-2xl border border-border bg-card p-6">
+                <div className="text-sm font-semibold text-primary">{item.day} — {item.date}</div>
+                <h3 className="mt-2 text-lg font-semibold text-foreground">{item.title}</h3>
+                {item.description ? <p className="mt-3 text-sm text-muted-foreground">{item.description}</p> : null}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16 bg-muted/30">
+        <div className="container mx-auto px-6 grid gap-10 lg:grid-cols-2">
+          <div>
+            <h2 className="text-3xl font-bold text-foreground">O que inclui</h2>
+            <ul className="mt-6 space-y-4 text-muted-foreground">
+              {includes.map((item) => (
+                <li key={item} className="flex gap-3">
+                  <span className="mt-0.5 flex h-5 w-5 items-center justify-center rounded-full bg-primary/15 text-primary">
+                    <Check className="h-3 w-3" />
+                  </span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h2 className="text-3xl font-bold text-foreground">O que não inclui</h2>
+            <ul className="mt-6 space-y-4 text-muted-foreground">
+              {excludes.map((item) => (
+                <li key={item} className="flex gap-3">
+                  <span className="mt-0.5 flex h-5 w-5 items-center justify-center rounded-full bg-foreground/10 text-foreground">
+                    <X className="h-3 w-3" />
+                  </span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+            <p className="mt-6 text-sm text-muted-foreground">Opcional: disponibilizamos empresa parceira para compra das passagens.</p>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16 bg-background">
+        <div className="container mx-auto px-6 grid gap-10 lg:grid-cols-[1.2fr_0.8fr]">
+          <div className="rounded-3xl border border-border bg-card p-8">
+            <h2 className="text-2xl font-bold text-foreground">Cortesia especial</h2>
+            <p className="mt-4 text-muted-foreground">
+              Benefício exclusivo GUTOUR: possibilidade de adquirir equipamentos pessoais para o piloto da marca ACERBIS diretamente a preço de fábrica.
+            </p>
+            <p className="mt-4 text-muted-foreground">
+              Os equipamentos poderão ser encomendados antecipadamente, retirados no início da viagem e utilizados durante todo o roteiro, eliminando a necessidade de levar equipamentos do Brasil.
+            </p>
+            <p className="mt-4 text-muted-foreground">
+              Ao final da experiência, o piloto retorna com seus equipamentos novos para casa, aproveitando a viagem para testar e trazer itens de alta qualidade com o melhor custo-benefício.
+            </p>
+          </div>
+
+          <div className="rounded-3xl border border-border bg-card p-8">
+            <h2 className="text-2xl font-bold text-foreground">Detalhes importantes</h2>
+            <ul className="mt-4 space-y-3 text-muted-foreground">
+              <li>Grupo limitado: máximo 8 pilotos (mais exclusividade e atenção ao grupo)</li>
+              <li>Acompanhante: é possível levar na garupa (sob organização prévia)</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="investimento" className="py-16 bg-muted/30">
+        <div className="container mx-auto px-6">
+          <div className="rounded-3xl border border-border bg-card p-8">
+            <h2 className="text-3xl font-bold text-foreground">Investimento</h2>
+            <div className="mt-6 grid gap-6 md:grid-cols-3">
+              <div>
+                <p className="text-sm text-muted-foreground">por participante</p>
+                <p className="text-3xl font-bold text-foreground">€ 4.900</p>
+              </div>
+              <div>
+                <p className="text-sm text-muted-foreground">Sinal de reserva</p>
+                <p className="text-2xl font-semibold text-foreground">€ 900</p>
+              </div>
+              <div>
+                <p className="text-sm text-muted-foreground">Saldo</p>
+                <p className="text-2xl font-semibold text-foreground">€ 4.000</p>
+                <p className="mt-1 text-sm text-muted-foreground">Prazo até 15 dias antes</p>
+              </div>
+            </div>
+            <p className="mt-6 text-sm text-muted-foreground">Valor considera hospedagem em apartamento duplo. (Individual sob cotação.)</p>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16 bg-background">
+        <div className="container mx-auto px-6">
+          <div className="flex items-center justify-between gap-4">
+            <div>
+              <h2 className="text-3xl font-bold text-foreground">Galeria</h2>
+              <p className="mt-2 text-muted-foreground">Algumas imagens para entrar no clima da viagem.</p>
+            </div>
+          </div>
+
+          <div className="mt-10 grid gap-6 md:grid-cols-2">
+            {gallery.map((item) => (
+              <div key={item.alt} className="relative aspect-[4/3] overflow-hidden rounded-3xl">
+                <Image src={item.src} alt={item.alt} fill className="object-cover" />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <SocialMedia />
+
+      <section id="contact" className="py-16 bg-muted/30">
+        <div className="container mx-auto px-6">
+          <div className="rounded-3xl bg-primary/10 p-10 text-center">
+            <h2 className="text-3xl font-bold text-foreground">Bora com a gente nessa aventura?</h2>
+            <p className="mt-3 text-muted-foreground">Chame no WhatsApp para garantir vaga e receber todos os detalhes.</p>
+            <a
+              href="https://wa.me/5531988932691"
+              target="_blank"
+              rel="noreferrer"
+              className="mt-6 inline-flex items-center justify-center rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition hover:bg-primary/90"
+            >
+              Contato via WhatsApp
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <Footer />
+    </main>
+  )
+}

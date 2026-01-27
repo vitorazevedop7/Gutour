@@ -19,6 +19,7 @@ const trips = [
     date: "Julho 2026",
     image: "/images/4.jpg",
     featured: true,
+    href: "/viagens/romania",
   },
   {
     id: 3,
