@@ -23,12 +23,13 @@ const trips = [
   },
   {
     id: 3,
-    title: "Moto GP",
-    location: "Espanha",
-    countryFlag: "🇪🇸",
-    date: "Agosto 2026",
+    title: "MotoGP Spielberg",
+    location: "Áustria",
+    countryFlag: "🇦🇹",
+    date: "Setembro 2026",
     image: "/images/5.jpg",
     featured: true,
+    href: "/viagens/spielberg",
   },
   {
     id: 4,
