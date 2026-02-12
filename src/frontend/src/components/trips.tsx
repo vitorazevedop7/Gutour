@@ -33,12 +33,13 @@ const trips = [
   },
   {
     id: 4,
-    title: "MX ON Motocross das Nações",
+    title: "MXoN Ernée",
     location: "França",
     countryFlag: "🇫🇷",
-    date: "Outubro 2026",
+    date: "Setembro 2026",
     image: "/images/6.jpg",
-    featured: false,
+    featured: true,
+    href: "/viagens/ernee",
   },
 ]
 
